@@ -15,20 +15,15 @@ export interface Product {
     stock_status: string;
     stock_quantity: number;
     tags: TagType[];
+    quantity?: number;
+    on_sale?: boolean;
+    rating?: number;
 }
 
 export interface ExtandedProduct extends Product {
     description: string;
     on_sale: boolean;
 }
-
-export type CartItemType = {
-    id: number;
-    quantity: number;
-    img: string;
-    name: string;
-    price: number;
-};
 
 export type OrderDataType = {
     customer_first_name: string;
@@ -45,4 +40,10 @@ export type OrderDataType = {
         item_total: number;
     }>;
     order_total?: number;
+    card_number?: string;
+    cvc?: string;
+    due_date?: string;
+    name_on_card?: string;
+    shipping_method: string;
+    payment_method: string;
 };

@@ -1,7 +1,8 @@
-import Container from 'react-bootstrap/Container';
-import Spinner from 'react-bootstrap/Spinner';
 import { useProducts } from '../hooks/useProducts';
-import ProductGrid from '../components/ProductGrid';
+import ProductGrid from '../components/products/ProductGrid';
+import { Breadcrumb, Container, Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import NotFoundPage from './NotFoundPage';
 
 const ProductsPage: React.FC = () => {
 
@@ -9,32 +10,33 @@ const ProductsPage: React.FC = () => {
 
     if (isLoading) {
         return (
-            <Container
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    position: 'relative',
-                    height: '90vh'
-                }}>
-                <Spinner
-                    style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        color: 'deeppink'
-                    }} />
+            <Container id='products-page' className='my-4'>
+                <Breadcrumb className='ps-2'>
+                    <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Hem</Breadcrumb.Item>
+                    <Breadcrumb.Item active>Produkter</Breadcrumb.Item>
+                </Breadcrumb>
+                <Container
+                    className="my-5 rounded bg-bg d-flex justify-content-center position-relative page-wrapper">
+                    <Spinner className='loading-spinner' />
+                </Container>
             </Container>
         );
     }
 
     if (error) {
         return (
-            <Container>Error: {error.message}</Container>
+            <NotFoundPage />
         );
     }
 
     return (
-        <ProductGrid />
+        <Container id='products-page page-wrapper' className='my-4'>
+            <Breadcrumb className='ps-2'>
+                <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Hem</Breadcrumb.Item>
+                <Breadcrumb.Item active>Produkter</Breadcrumb.Item>
+            </Breadcrumb>
+            <ProductGrid />
+        </Container>
     );
 };
 

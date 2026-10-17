@@ -1,0 +1,11 @@
+#footer {
+    background-color: $secondary-color;
+
+    a {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+
+}

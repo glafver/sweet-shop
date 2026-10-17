@@ -1,0 +1,42 @@
+.shop-icon {
+    color: $primary-color;
+
+    &:hover {
+        color: $accent-color;
+    }
+}
+
+.icon-btn {
+    cursor: pointer;
+}
+
+.card-fav-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: $primary-color;
+
+    &:hover {
+        color: $accent-color;
+    }
+}
+
+.rating-icon {
+    color: $background-color;
+    margin: 0 0 5px 0;
+}
+
+.rating-icon-filled {
+    color: $secondary-accent-color;
+}
+
+.icon-btn.close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 2;
+
+    &:hover {
+        color: $primary-color;
+    }
+}

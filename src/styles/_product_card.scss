@@ -1,0 +1,16 @@
+.product-name {
+    cursor: pointer;
+
+    &:hover {
+        color: $primary-color !important;
+    }
+}
+
+.out-of-stock {
+    position: absolute;
+    font-size: 25px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}

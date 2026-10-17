@@ -1,0 +1,80 @@
+body {
+    font-family: Montserrat;
+    color: $text-color !important;
+}
+
+*:focus {
+    box-shadow: none !important;
+    border-color: #dee2e6 !important;
+}
+
+button {
+    border: none !important;
+    background-color: $primary-color !important;
+    color: white !important;
+}
+
+a {
+    text-decoration: none;
+    color: $text-color;
+}
+
+.btn:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .11);
+}
+
+.card {
+    border: none;
+}
+
+.form-control {
+    border: none !important;
+
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+
+.form-check-input:checked {
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: $primary-color;
+}
+
+.Toastify__close-button {
+    background-color: transparent !important;
+    color: $text-color !important;
+}
+
+.Toastify__progress-bar {
+    background: linear-gradient(45deg, #4D9DE0, #E15554, #E1BC29);
+}
+
+.page-wrapper {
+    min-height: calc(100vh - 101px - 56px - 216px);
+}
+
+.logo {
+    font-family: 'Modak', sans-serif;
+    color: $primary-color;
+}
+
+.logo-lg {
+    font-size: 50px;
+}
+
+.logo-sm {
+    font-size: 34px;
+    line-height: 27px;
+}

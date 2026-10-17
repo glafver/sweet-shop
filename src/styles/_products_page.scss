@@ -1,0 +1,61 @@
+#products-filter-wrapper {
+    width: 100%;
+    background-color: white;
+    padding: 16px;
+
+    input.form-check-input:checked {
+        background-color: $primary-color !important;
+        border-color: $primary-color !important;
+    }
+
+    input.form-control {
+        background-color: $background-color !important;
+    }
+
+    .price-group {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 26px;
+    }
+
+    .form-check-input {
+        cursor: pointer;
+    }
+}
+
+#sort-select {
+    margin: 0 0 20px 0;
+    display: flex;
+    padding: 0 12px;
+    justify-content: space-between;
+
+    @media (max-width: map-get($breakpoints, md)) {
+        flex-direction: column;
+        align-items: end;
+
+        h3 {
+            display: none;
+        }
+    }
+
+    button {
+        text-align: right;
+        width: 200px;
+        background-color: $background-color !important;
+        color: $text-color !important;
+
+        &:hover {
+            box-shadow: none;
+        }
+    }
+
+    .dropdown-menu.show {
+        inset: 0px auto auto 30px !important;
+    }
+
+    .dropdown-item.active,
+    .dropdown-item:active {
+        background-color: $background-color !important;
+        color: $text-color !important;
+    }
+}

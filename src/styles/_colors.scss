@@ -1,0 +1,68 @@
+.primary-bg {
+    background-color: $primary-color;
+}
+
+.secondary-bg {
+    background-color: $secondary-color;
+}
+
+.bg-bg {
+    background-color: $background-color;
+}
+
+.primary-color {
+    color: $primary-color;
+}
+
+.secondary-color {
+    color: $secondary-color !important;
+}
+
+.changing-color {
+    background: linear-gradient(90deg, #4D9DE0, #E15554, #E1BC29);
+    background-size: 200% auto;
+    color: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: changeColor 1s linear infinite;
+}
+
+@keyframes changeColor {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+// .changing-color {
+//     animation: changeColor 10s linear infinite;
+// }
+
+// @keyframes changeColor {
+//     0% {
+//         color: pink;
+//     }
+
+//     25% {
+//         color: $primary-color;
+//     }
+
+//     50% {
+//         color: $accent-color(140, 240, 140);
+//     }
+
+//     75% {
+//         color: $primary-color(224, 150, 253);
+//     }
+
+//     100% {
+//         color: pink;
+//     }
+// }
