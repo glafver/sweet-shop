@@ -10,22 +10,23 @@ An online candy shop that will sweeten your day!
 
 ## 📖 About the project
 
-**Sweet Shop** is a single-page application (SPA) for browsing and ordering sweets and treats. Users can browse the product catalog, filter products by category, add items to the cart, and place an order.
+**Sweet Shop** is a single-page application (SPA) for browsing and ordering sweets and treats. Users can explore the catalog, filter and search products, save favorites, add items to the cart, and place an order through a multi-step checkout.
 
 The project was created as part of a **SkillUp** course assignment and uses the external [Bortakväll REST API](https://www.bortakvall.se/api/v2) to fetch product data and submit orders.
 
 ## ✨ Features
 
-- 🛍️ Product catalog with product cards (product grid)
-- 🔍 Filter products by category (tags)
-- 🔎 View detailed product information in a modal
-- 🛒 Shopping cart persisted in `localStorage`
-- ➕➖ Adjust item quantities in the cart
-- 📦 Checkout with form validation
-- ✅ Order confirmation after a successful submission
-- 🏷️ Cart item count badge in the navigation bar
-- 🚫 Stock availability checks (tracks `stock_quantity` and `stock_status`)
+- 🏠 Home page with hero, benefits, brand logos, "New in" and subscribe sections
+- 🛍️ Product catalog with search, category filters, sorting and star ratings
+- 🔎 Dedicated product detail page (`/product/:id`)
+- ❤️ Favorites (wishlist) persisted in `localStorage`
+- 🛒 Shopping cart persisted in `localStorage` with quantity management
+- 📦 Multi-step checkout: shipping → payment → order review, with form validation
+- 🎉 Order confirmation with confetti animation
+- 🔔 Toast notifications for user feedback
 - 📱 Responsive interface
+- ⚡ Scroll-to-top on navigation
+- 🎨 Scroll/entrance animations
 
 ## 🛠️ Tech stack
 
@@ -37,47 +38,67 @@ The project was created as part of a **SkillUp** course assignment and uses the 
 | Routing     | [React Router v6](https://reactrouter.com/)                                                       |
 | API calls   | [Axios](https://axios-http.com/) + [React Query](https://tanstack.com/query/v3/)                  |
 | Styling     | [Bootstrap 5](https://getbootstrap.com/) / [React Bootstrap](https://react-bootstrap.github.io/), [Sass](https://sass-lang.com/) |
-| Icons       | [Bootstrap Icons](https://icons.getbootstrap.com/)                                                |
+| Icons       | [react-icons](https://react-icons.github.io/react-icons/)                                          |
+| Animations  | [react-awesome-reveal](https://react-awesome-reveal.morello.dev/), [react-confetti](https://github.com/alampros/react-confetti) |
+| Notifications | [react-toastify](https://fkhadra.github.io/react-toastify/)                                      |
 | Linting     | [ESLint](https://eslint.org/)                                                                     |
 
 ## 📁 Project structure
 
 ```
 sweet-shop/
-├── public/                    # Static files
+├── public/                       # Static files
 ├── src/
 │   ├── api/
-│   │   └── api.ts             # API functions (axios)
+│   │   └── api.ts                # API functions (axios)
+│   ├── assets/                   # Brand logos and images
 │   ├── components/
-│   │   ├── CartItem.tsx        # Cart item row
-│   │   ├── Navbar.tsx          # Navigation bar
-│   │   ├── NavbarProductSelect.tsx # Product category selector
-│   │   ├── OrderForm.tsx       # Checkout form
-│   │   ├── OrderModal.tsx      # Order confirmation modal
-│   │   ├── ProductCard.tsx     # Product card
-│   │   ├── ProductGrid.tsx     # Product grid
-│   │   └── ProductModal.tsx    # Product detail modal
+│   │   ├── cart_page/            # Cart item components
+│   │   ├── home_page_sections/   # Home page sections (hero, benefits, etc.)
+│   │   ├── order_page/           # Checkout blocks (shipping, payment, review)
+│   │   ├── partials/             # Navbar, Footer, SearchBar, icons
+│   │   └── products/             # ProductCard, ProductGrid, filters, ratings
 │   ├── contexts/
-│   │   ├── CartContext.tsx     # Cart context
-│   │   └── ProductsContext.tsx # Products & filtering context
+│   │   ├── CartContext.tsx       # Cart context
+│   │   ├── FavContext.tsx        # Favorites context
+│   │   └── ProductsContext.tsx   # Products & filtering context
+│   ├── helpers/
+│   │   └── data.ts               # Shipping/payment methods, FAQ data
 │   ├── hooks/
-│   │   ├── useCart.ts          # Cart access hook
-│   │   └── useProducts.ts      # Products access hook
-│   ├── pages/
-│   │   ├── CartPage.tsx        # Cart page (/cart)
-│   │   └── ProductsPage.tsx    # Catalog page (/)
+│   │   ├── useCart.ts            # Cart access hook
+│   │   ├── useFav.ts             # Favorites access hook
+│   │   └── useProducts.ts        # Products access hook
+│   ├── pages/                    # Route pages
+│   ├── styles/                   # SCSS partials
 │   ├── types/
-│   │   └── types.ts            # TypeScript types
-│   ├── App.tsx                 # Root component and routes
-│   ├── index.scss              # Global styles
-│   └── main.tsx                # Entry point
-├── .env.example                # Environment variables example
+│   │   └── types.ts              # TypeScript types
+│   ├── App.tsx                   # Root component and routes
+│   ├── main.tsx                  # Entry point and providers
+│   └── vite-env.d.ts
+├── .env.example                  # Environment variables example
 ├── index.html
+├── netlify.toml
+├── _redirects
 ├── package.json
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
 ```
+
+## 🧭 Routes
+
+| Path            | Page                          |
+| --------------- | ----------------------------- |
+| `/`             | Home page                     |
+| `/products`     | Product catalog               |
+| `/product/:id`  | Product detail page           |
+| `/new-in`       | New arrivals                  |
+| `/cart`         | Shopping cart                 |
+| `/order`        | Checkout                      |
+| `/favorites`    | Favorites (wishlist)          |
+| `/faq`          | Frequently asked questions    |
+| `/contacts`     | Contact page                  |
+| `*`             | 404 — Not found               |
 
 ## 🚀 Getting started
 
